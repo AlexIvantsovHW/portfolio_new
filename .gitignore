@@ -1,0 +1,14 @@
+node_modules
+build
+out
+./frontend/node_modules
+./frontend/out
+./frontend/.env
+./frontend/.next
+./frontend/.next
+
+
+
+img
+.env
+.next
