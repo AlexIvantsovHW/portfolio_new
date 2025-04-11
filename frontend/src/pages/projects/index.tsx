@@ -1,6 +1,15 @@
+import { AppRootState } from "@/src/app/store";
+import { useGetAllProjectsQuery } from "@/src/shared/api/requests/projects/projects.api";
 import { HeadMeta } from "@/src/widgets/HeadMeta/HeadMeta";
+import { RootState } from "@reduxjs/toolkit/query";
+import { useSelector } from "react-redux";
 
 const Projects = () => {
+  const { data } = useGetAllProjectsQuery(20);
+  const stateData = useSelector(
+    (state: AppRootState) => state.projectsSlice.data
+  );
+  console.log(stateData);
   return (
     <>
       {/*    <HeadMeta

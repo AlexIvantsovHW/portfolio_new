@@ -1,5 +1,7 @@
 import { jobsApi } from "@/src/shared/api/requests/jobs/jobs.api";
 import { jobsSlice } from "@/src/shared/api/requests/jobs/slice";
+import { projectsApi } from "@/src/shared/api/requests/projects/projects.api";
+import { projectsSlice } from "@/src/shared/api/requests/projects/slice";
 import { universitiesSlice } from "@/src/shared/api/requests/universities/slice";
 import { universitiesApi } from "@/src/shared/api/requests/universities/universities.api";
 
@@ -27,9 +29,8 @@ const rootReducer = combineReducers({
   jobsSlice: jobsSlice.reducer,
   [universitiesApi.reducerPath]: universitiesApi.reducer,
   universitiesSlice: universitiesSlice.reducer,
-
-  /*   farmersListFilterSlice: farmersListFilterSlice.reducer,
-  [reviewsApi.reducerPath]: reviewsApi.reducer, */
+  [projectsApi.reducerPath]: projectsApi.reducer,
+  projectsSlice: projectsSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -42,9 +43,9 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(
-      /*       farmerDataApi.middleware, */
       jobsApi.middleware,
-      universitiesApi.middleware
+      universitiesApi.middleware,
+      projectsApi.middleware
     ),
 });
 

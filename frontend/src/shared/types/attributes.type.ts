@@ -6,4 +6,7 @@ export type Attributes = {
   description: string;
   jobTitle: string;
   software_id: number;
+  link: string;
+  logo: string;
+  title: string;
 };
