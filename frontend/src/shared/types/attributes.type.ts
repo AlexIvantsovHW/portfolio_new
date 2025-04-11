@@ -9,4 +9,7 @@ export type Attributes = {
   link: string;
   logo: string;
   title: string;
+  name: string;
+  date: string;
+  position: string;
 };
