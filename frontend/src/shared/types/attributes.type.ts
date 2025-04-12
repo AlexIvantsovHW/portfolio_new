@@ -10,6 +10,12 @@ export type Attributes = {
   logo: string;
   title: string;
   name: string;
+  username: string;
+  surname: string;
+  age: number;
+  city: number;
+  country: string;
+  yearExperince: number;
   date: string;
   position: string;
 };
