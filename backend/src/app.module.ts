@@ -6,6 +6,7 @@ import { UniversityModule } from './university/university.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProjectsModule } from './projects/projects.module';
 import { FeedbacksModule } from './feedbacks/feedbacks.module';
+import { PersonalModule } from './personal/personal.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { FeedbacksModule } from './feedbacks/feedbacks.module';
     UniversityModule,
     ProjectsModule,
     FeedbacksModule,
+    PersonalModule,
   ],
   controllers: [AppController],
   providers: [AppService],
