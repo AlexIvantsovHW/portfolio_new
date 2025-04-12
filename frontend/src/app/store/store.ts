@@ -1,3 +1,5 @@
+import { contactApi } from "@/src/shared/api/requests/contact";
+import { contactSlice } from "@/src/shared/api/requests/contact/slice";
 import { feedbacksApi } from "@/src/shared/api/requests/feedbacks";
 import { feedbacksSlice } from "@/src/shared/api/requests/feedbacks/slice";
 import { jobsApi } from "@/src/shared/api/requests/jobs/jobs.api";
@@ -39,6 +41,8 @@ const rootReducer = combineReducers({
   feedbacksSlice: feedbacksSlice.reducer,
   [personalApi.reducerPath]: personalApi.reducer,
   personalSlice: personalSlice.reducer,
+  [contactApi.reducerPath]: contactApi.reducer,
+  contactSlice: contactSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -55,7 +59,8 @@ export const store = configureStore({
       universitiesApi.middleware,
       projectsApi.middleware,
       feedbacksApi.middleware,
-      personalApi.middleware
+      personalApi.middleware,
+      contactApi.middleware
     ),
 });
 

@@ -18,4 +18,11 @@ export type Attributes = {
   yearExperince: number;
   date: string;
   position: string;
+  whatsApp: number;
+  telegram: number;
+  linkedIn: string;
+  phone: number;
+  email: string;
+  cv: string;
+  website: string;
 };

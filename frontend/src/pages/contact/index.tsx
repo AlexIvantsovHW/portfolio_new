@@ -1,6 +1,14 @@
+import { AppRootState } from "@/src/app/store";
+import { useGetAllContactQuery } from "@/src/shared/api/requests/contact";
 import { HeadMeta } from "@/src/widgets/HeadMeta/HeadMeta";
+import { useSelector } from "react-redux";
 
 const Contact = () => {
+  const { data } = useGetAllContactQuery(20);
+  const contactData = useSelector(
+    (state: AppRootState) => state.contactSlice.data
+  );
+  console.log(contactData);
   return (
     <>
       {/*    <HeadMeta
