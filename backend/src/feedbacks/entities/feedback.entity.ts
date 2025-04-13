@@ -8,7 +8,7 @@ export class FeedbackEnitiy implements IFeedbacks {
   @Column({ nullable: false })
   name: string;
   @Column({ nullable: false })
-  date: string;
+  date: Date;
   @Column({ nullable: false })
   description: string;
   @Column({ nullable: false })

@@ -1,7 +1,7 @@
 export interface IFeedbacks {
   id: number;
   name: string;
-  date: string;
+  date: Date;
   description: string;
   position: string;
   companyTitle: string;

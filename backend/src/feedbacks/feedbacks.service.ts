@@ -8,7 +8,7 @@ import { FeedbackEnitiy } from './entities/feedback.entity';
 export class FeedbacksService {
   constructor(private readonly feedbacksRepository: FeedbacksRepository) {}
   create(createFeedbackDto: CreateFeedbackDto) {
-    return 'This action adds a new feedback';
+    return this.feedbacksRepository.createFeedback(createFeedbackDto);
   }
 
   findAll(): Promise<FeedbackEnitiy[]> {

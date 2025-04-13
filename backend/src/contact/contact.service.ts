@@ -8,7 +8,7 @@ import { ContactEntity } from './entities/contact.entity';
 export class ContactService {
   constructor(private readonly contactRepository: ContactRepository) {}
   create(createContactDto: CreateContactDto) {
-    return 'This action adds a new contact';
+    return this.contactRepository.createContact(createContactDto);
   }
 
   findAll(): Promise<ContactEntity[]> {

@@ -1,20 +1,63 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ContactController } from './contact.controller';
 import { ContactService } from './contact.service';
+import { ContactRepository } from './contact.repository';
 
 describe('ContactController', () => {
-  let controller: ContactController;
+  let contactController: ContactController;
+  let contactService: ContactService;
 
+  const mockRepository = {
+    findAll: jest.fn(),
+    createContact: jest.fn(),
+  };
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ContactController],
-      providers: [ContactService],
+      providers: [
+        ContactService,
+        { provide: ContactRepository, useValue: mockRepository },
+      ],
     }).compile();
 
-    controller = module.get<ContactController>(ContactController);
+    contactController = module.get<ContactController>(ContactController);
+    contactService = module.get<ContactService>(ContactService);
   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
+  describe('find all contacts', () => {
+    it('should return array of contacts and have length equals to 1', async () => {
+      const result = [
+        {
+          id: 1,
+          whatsApp: 12345678,
+          telegram: 12345678,
+          linkedIn: 'https://test.com',
+          phone: 12345678,
+          email: 'test@mail.com',
+          cv: 'https://test.com',
+          website: 'https://test.com',
+        },
+      ];
+      jest.spyOn(contactService, 'findAll').mockResolvedValue(result);
+      const contacts = await contactController.findAll();
+      expect(contacts).toBe(result);
+      expect(contacts).toHaveLength(1);
+    });
+    describe('create new contact', () => {
+      it('shoud create a new contact to db with id equals 2', () => {
+        const createContactDto = {
+          whatsApp: 111111111,
+          telegram: 111111111,
+          linkedIn: 'https://test2.com',
+          phone: 111111111,
+          email: 'test2@mail.com',
+          cv: 'https://test2.com',
+          website: 'https://test2.com',
+        };
+        const create = { id: 2, ...createContactDto };
+        mockRepository.createContact(create);
+        expect(create).toEqual({ id: 2, ...createContactDto });
+      });
+    });
   });
 });
