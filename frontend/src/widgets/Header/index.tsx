@@ -3,17 +3,46 @@
 import * as i from "./imports";
 
 export const Header = () => {
-  const router = i.useRouter();
-  const [anchorEl, setAnchorEl] = i.useState<null | HTMLElement>(null);
-
   return (
     <section
-      className={` w-full items-center flex justify-center h-[80px]`}
+      className="w-full items-center flex justify-center h-[80px] bg-[#152428] bg-opacity-70"
       style={{ fontFamily: "Cinzel" }}
     >
-      <header className="w-full xl:w-[75%]  ">
-        {" "}
-        <div className="w-full "></div>
+      <header className="w-full xl:w-[75%] flex items-center justify-between border h-full px-[2.5%]">
+        <div>Logo</div>
+        <div className="w-full flex items-center justify-end gap-2">
+          <i.CustomizedBtn
+            label="About"
+            Icon="PersonIcon"
+            route={i.ROUTES.ABOUT}
+          />
+
+          <i.CustomizedBtn
+            label="Projects"
+            Icon="WebStoriesIcon"
+            route={i.ROUTES.PROJECTS}
+          />
+          <i.CustomizedBtn
+            label="Experience"
+            Icon="WorkIcon"
+            route={i.ROUTES.EXPERIENCE}
+          />
+          <i.CustomizedBtn
+            label="Contact"
+            Icon="SmartphoneIcon"
+            route={i.ROUTES.CONTACT}
+          />
+          <i.CustomizedBtn
+            label="Feedback"
+            Icon="ThumbUpAltIcon"
+            route={i.ROUTES.FEEDBACK}
+          />
+          <i.CustomizedBtn
+            label="Sign In"
+            Icon="LoginIcon"
+            route={i.ROUTES.SIGN_IN}
+          />
+        </div>
       </header>
     </section>
   );

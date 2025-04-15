@@ -32,6 +32,8 @@ const config = {
     },
     extend: {
       colors: {
+        orangeLight: "#e1770d",
+        orangeDark: "#844f1c",
         lightGray: "#888888",
         lightGreen: "#50C878",
         blue: {
@@ -104,6 +106,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        durationOne: " 0.8s ",
       },
       fontFamily: {
         sans: "var(--font-pt-sans)",
