@@ -16,16 +16,15 @@ export const Header = () => {
             Icon="PersonIcon"
             route={i.ROUTES.ABOUT}
           />
-
-          <i.CustomizedBtn
-            label="Projects"
-            Icon="WebStoriesIcon"
-            route={i.ROUTES.PROJECTS}
-          />
           <i.CustomizedBtn
             label="Experience"
             Icon="WorkIcon"
             route={i.ROUTES.EXPERIENCE}
+          />
+          <i.CustomizedBtn
+            label="Projects"
+            Icon="WebStoriesIcon"
+            route={i.ROUTES.PROJECTS}
           />
           <i.CustomizedBtn
             label="Contact"
