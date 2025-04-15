@@ -1,15 +1,7 @@
-import { AppRootState } from "@/src/app/store";
-import { useGetAllProjectsQuery } from "@/src/shared/api/requests/projects/projects.api";
-import { HeadMeta } from "@/src/widgets/HeadMeta/HeadMeta";
-import { RootState } from "@reduxjs/toolkit/query";
-import { useSelector } from "react-redux";
-
+import * as i from "./imports";
 const Projects = () => {
-  const { data } = useGetAllProjectsQuery(20);
-  const stateData = useSelector(
-    (state: AppRootState) => state.projectsSlice.data
-  );
-  console.log(stateData);
+  const { data, isLoading } = i.useGetAllProjectsQuery(20);
+
   return (
     <>
       {/*    <HeadMeta
@@ -18,14 +10,19 @@ const Projects = () => {
       /> */}
       <main
         className={
-          "px-[16px] flex flex-col gap-[40px] md:px-[32px] xl:px-[64px] xxl:px-[272px] py-[15px]   "
+          "px-[16px] flex flex-col gap-[40px] md:px-[32px] xl:px-[64px] xxl:px-[272px] py-[15px] flex flex-col items-center justify-start  "
         }
       >
-        <div className="flex flex-col gap-[40px] items-center justify-center w-full text-[20px] md:text-[35px] lg:text-[45px]">
-          <h1 className="text-center uppercase w-full md:w-[75%] text-[#FFD700]">
-            projects
-          </h1>
-        </div>
+        {isLoading ? (
+          <div className="w-full h-fit flex items-center justify-around">
+            {" "}
+            {[1, 2].map((el) => (
+              <i.Skeleton variant="rounded" width={210} height={250} />
+            ))}
+          </div>
+        ) : (
+          <i.ProjectWidget />
+        )}
       </main>
     </>
   );
