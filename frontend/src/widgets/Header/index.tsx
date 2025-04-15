@@ -5,12 +5,12 @@ import * as i from "./imports";
 export const Header = () => {
   return (
     <section
-      className="w-full items-center flex justify-center h-[80px] bg-[#152428] bg-opacity-70"
+      className="sticky w-full items-center flex justify-center h-[80px] bg-[#152428] bg-opacity-70"
       style={{ fontFamily: "Cinzel" }}
     >
-      <header className="w-full xl:w-[75%] flex items-center justify-between border h-full px-[2.5%]">
+      <header className="w-full xl:w-[75%] flex items-center justify-between  h-full px-[2.5%]">
         <div>Logo</div>
-        <div className="w-full flex items-center justify-end gap-2">
+        <div className="w-full flex items-center justify-end gap-[15px]">
           <i.CustomizedBtn
             label="About"
             Icon="PersonIcon"
