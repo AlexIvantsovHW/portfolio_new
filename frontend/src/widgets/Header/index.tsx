@@ -3,13 +3,22 @@
 import * as i from "./imports";
 
 export const Header = () => {
+  const router = i.useRouter();
   return (
     <section
       className="sticky w-full items-center flex justify-center h-[80px] bg-[#152428] bg-opacity-70"
       style={{ fontFamily: "Cinzel" }}
     >
       <header className="w-full xl:w-[75%] flex items-center justify-between  h-full px-[2.5%]">
-        <div>Logo</div>
+        <img
+          onClick={() => router.push(i.ROUTES.HOME)}
+          src="./logo.png"
+          width={30}
+          height={30}
+          alt="logo"
+          className="cursor-pointer hover:scale-[105%] transition ease-in-out  duration-500"
+        />
+
         <div className="w-full flex items-center justify-end gap-[15px]">
           <i.CustomizedBtn
             label="About"
