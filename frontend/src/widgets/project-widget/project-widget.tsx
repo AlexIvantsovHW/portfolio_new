@@ -1,22 +1,34 @@
-import { AppRootState } from "@/src/app/store";
-import { memo } from "react";
-import { useSelector } from "react-redux";
-
+import * as i from "./imports";
 const ProjectWidget = () => {
-  console.log("Project Widget is rendered");
-  const { data } = useSelector((state: AppRootState) => state.projectsSlice);
+  const { data } = i.useSelector(
+    (state: i.AppRootState) => state.projectsSlice
+  );
+  const [value, setValue] = i.useState(2);
+  const filteredData = i.useMemo(() => {
+    return data.slice(0, value);
+  }, [value]);
+  const handleProjects = () => {
+    if (data.length > value) {
+      setValue(value + 2);
+    } else {
+      setValue(2);
+    }
+  };
+
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-start">
+    <div className="w-full min-h-screen flex flex-col items-center justify-start ">
       <h1 className="text-orangeLight">PROJECTS</h1>
       <video>
         <source />
       </video>
-      <div>
-        {data?.map((project) => {
-          return <div key={project.id}>{project.title}</div>;
-        })}
-      </div>
+      <i.ProjectListSkillet data={filteredData} />
+      <button
+        onClick={handleProjects}
+        className="flex items-center justify-center text-orangeLight text-[15px] hover:border-b hover:border-b-orangeLight py-[5px] hover:text-orangeDark hover:border-orangeDark transition ease-in-out  duration-500 "
+      >
+        <span>{data.length > value ? "See More" : "Hidden All"}</span>
+      </button>
     </div>
   );
 };
-export default memo(ProjectWidget);
+export default i.memo(ProjectWidget);
