@@ -1,5 +1,3 @@
-"use client";
-
 import * as i from "./imports";
 
 export const Header = () => {
@@ -17,8 +15,7 @@ export const Header = () => {
           height={30}
           alt="logo"
           className="cursor-pointer hover:scale-[105%] transition ease-in-out  duration-500"
-        />
-
+        />{" "}
         <div className="w-full flex items-center justify-end gap-[15px]">
           <i.CustomizedBtn
             label="About"
@@ -55,3 +52,4 @@ export const Header = () => {
     </section>
   );
 };
+export default Header;

@@ -3,7 +3,11 @@ const ProjectWidget = () => {
   const { data } = i.useSelector(
     (state: i.AppRootState) => state.projectsSlice
   );
-  const [value, setValue] = i.useState(2);
+  const [isClient, setIsClient] = i.useState(false);
+  const [value, setValue] = i.useState<number>(2);
+  i.useEffect(() => {
+    setIsClient(true);
+  }, []);
   const filteredData = i.useMemo(() => {
     return data.slice(0, value);
   }, [value]);
@@ -12,6 +16,7 @@ const ProjectWidget = () => {
       setValue(value + 2);
     } else {
       setValue(2);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
