@@ -51,4 +51,19 @@ describe("home-test component testing", () => {
     const text = screen.getByTestId("desc");
     expect(text.textContent).toBe("description");
   });
+  it("button test should be disable", () => {
+    const btn = screen.getByRole("button", { name: /test/i });
+    expect(btn).toBeInTheDocument();
+    expect(btn).toBeDisabled();
+  });
+  it(" input should be rendered", () => {
+    const ipt = screen.getByPlaceholderText("enter the name");
+    expect(ipt).toBeInTheDocument();
+  });
+  it(" button should be active after input is fillded", () => {
+    const ipt = screen.getByPlaceholderText("enter the name");
+    fireEvent.change(ipt, { target: { value: "test note" } });
+    const btn = screen.getByRole("button", { name: /test/i });
+    expect(btn).not.toBeDisabled();
+  });
 });
