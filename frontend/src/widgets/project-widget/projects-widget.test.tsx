@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ProjectListSkillet } from "./imports";
-import ProjectWidget from "./project-widget";
 
 describe("Project widget test", () => {
   beforeEach(() => {
