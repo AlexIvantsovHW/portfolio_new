@@ -5,6 +5,7 @@ import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonIcon from "@mui/icons-material/Person";
 import SchoolIcon from "@mui/icons-material/School";
+import CastForEducationIcon from "@mui/icons-material/CastForEducation";
 export {
   WebStoriesIcon,
   WorkIcon,
@@ -13,4 +14,5 @@ export {
   LoginIcon,
   PersonIcon,
   SchoolIcon,
+  CastForEducationIcon,
 };
