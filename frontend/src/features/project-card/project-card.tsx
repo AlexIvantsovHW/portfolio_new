@@ -4,7 +4,7 @@ type Props = {
   idx: number;
 };
 export const ProjectCard: React.FC<Props> = ({ project, idx }) => {
-  console.log(`idx- ${idx}`);
+  console.log(idx);
   return (
     <i.motion.div
       initial={{ x: idx % 2 === 0 ? -50 : 50, opacity: 0 }}
