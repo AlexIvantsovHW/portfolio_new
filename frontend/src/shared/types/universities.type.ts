@@ -9,5 +9,6 @@ export type Universities = Pick<
   | "software_id"
   | "startAt"
   | "id"
+  | "companyLogo"
 >;
 export type University = Omit<Universities, "id">;
