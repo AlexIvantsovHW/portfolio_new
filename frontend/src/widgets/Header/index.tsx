@@ -33,6 +33,11 @@ export const Header = () => {
             route={i.ROUTES.PROJECTS}
           />
           <i.CustomizedBtn
+            label="Education"
+            Icon="SchoolIcon"
+            route={i.ROUTES.EDUCATION}
+          />
+          <i.CustomizedBtn
             label="Contact"
             Icon="SmartphoneIcon"
             route={i.ROUTES.CONTACT}

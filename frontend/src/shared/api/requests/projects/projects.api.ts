@@ -13,8 +13,7 @@ export const projectsApi = createApi({
           const { data } = await queryFulfilled;
           dispatch(setData(data));
         } catch (err) {
-          // `onError` side-effect
-          // dispatch(messageCreated("Error fetching post!"));
+          console.log(err);
         }
       },
     }),

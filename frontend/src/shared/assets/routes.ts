@@ -6,4 +6,5 @@ export enum ROUTES {
   CONTACT = "/contact",
   FEEDBACK = "/feedback",
   SIGN_IN = "/sign-in",
+  EDUCATION = "/education",
 }

@@ -1,5 +1,6 @@
 import { Universities } from "@/src/shared/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { setData } from "./slice";
 
 export const universitiesApi = createApi({
   reducerPath: "universitiesApi",
@@ -10,11 +11,9 @@ export const universitiesApi = createApi({
       async onQueryStarted(id, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          console.log(data);
-          //dispatch(setData(data));
+          dispatch(setData(data));
         } catch (err) {
-          // `onError` side-effect
-          // dispatch(messageCreated("Error fetching post!"));
+          console.log(err);
         }
       },
     }),

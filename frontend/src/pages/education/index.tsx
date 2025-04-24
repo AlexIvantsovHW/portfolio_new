@@ -1,9 +1,10 @@
 import { useGetAllUniversitiesQuery } from "@/src/shared/api/requests/universities/universities.api";
+import { EducationWidget } from "@/src/widgets/education-widget";
 import { HeadMeta } from "@/src/widgets/HeadMeta/HeadMeta";
 
 const Education = () => {
   const { data } = useGetAllUniversitiesQuery(20);
-  console.log(data);
+
   return (
     <>
       {/*    <HeadMeta
@@ -20,6 +21,7 @@ const Education = () => {
             Education
           </h1>
         </div>
+        <EducationWidget />
       </main>
     </>
   );

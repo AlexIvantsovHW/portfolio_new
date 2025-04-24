@@ -8,7 +8,8 @@ type Props = {
     | "SmartphoneIcon"
     | "ThumbUpAltIcon"
     | "LoginIcon"
-    | "PersonIcon";
+    | "PersonIcon"
+    | "SchoolIcon";
   route?: string;
   click?: () => void;
   labelStyle?: string;
